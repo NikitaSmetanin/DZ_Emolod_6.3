@@ -12,11 +12,15 @@ namespace DZ_Emolod_6._3
 {
     public partial class Form1 : Form
     {
-
-
+        List<Comment> comments = new List<Comment>();
         public Form1()
         {
             InitializeComponent();
+
+            for (int i = 0; i < 10; i++)
+            {
+                comments.Add(new Comment(new User("user" + i), "Comment "+i));
+            }
         }
                
     }

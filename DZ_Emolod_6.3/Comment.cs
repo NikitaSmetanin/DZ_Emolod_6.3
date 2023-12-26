@@ -22,6 +22,7 @@ namespace DZ_Emolod_6._3
             this.text = text;
             this.user = user;
             //this.id = ++autoInc;
+            this.id = random.Next(0, 999999);
         }
 
         public int getId() { return id; }
