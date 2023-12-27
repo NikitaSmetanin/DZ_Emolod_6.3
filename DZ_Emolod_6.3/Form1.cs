@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DZ_Emolod_6._3
 {
@@ -38,8 +32,8 @@ namespace DZ_Emolod_6._3
             GroupBox item = new GroupBox();
             Label userName = new Label();
             TextBox commentText = new TextBox();
-            Button dislikeButton = new Button();
-            Button likeButton = new Button();           
+            CustomButton dislikeButton = new CustomButton();
+            CustomButton likeButton = new CustomButton();           
             item.SuspendLayout();
             // 
             // item
@@ -83,7 +77,18 @@ namespace DZ_Emolod_6._3
             dislikeButton.Text = comment.getDislike().ToString();
             dislikeButton.TextAlign = ContentAlignment.MiddleRight;
             dislikeButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            dislikeButton.UseVisualStyleBackColor = true;           
+            dislikeButton.UseVisualStyleBackColor = true;
+            dislikeButton.CommentId = comment.getId();
+            dislikeButton.Click += (object? sender, EventArgs e) =>
+            {
+                GroupBox gb = ((CustomButton)sender).Parent as GroupBox;
+
+                Comment comment = this.comments.Find(item => item.getId() == ((CustomButton)sender).CommentId);
+
+                comment.setDislike(comment.getDislike() + 1);
+
+                ((CustomButton)sender).Text = comment.getDislike().ToString();
+            };
             // 
             // likeButton
             // 
@@ -96,7 +101,17 @@ namespace DZ_Emolod_6._3
             likeButton.TextAlign = ContentAlignment.MiddleRight;
             likeButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             likeButton.UseVisualStyleBackColor = true;
-          
+            likeButton.CommentId = comment.getId();
+            likeButton.Click += (object? sender, EventArgs e) =>
+            {
+                GroupBox gb = ((CustomButton)sender).Parent as GroupBox;             
+
+                Comment comment = this.comments.Find(item => item.getId() == ((CustomButton)sender).CommentId);
+
+                comment.setLike(comment.getLike() + 1);
+
+                ((CustomButton)sender).Text = comment.getLike().ToString();
+            };
 
             this.Controls.Add(item);
 

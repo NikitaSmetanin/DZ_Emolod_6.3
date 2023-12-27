@@ -2,6 +2,9 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>  
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EF3030A6-5B19-4BFF-908D-61ECB5B81D6B}</ProjectGuid>
@@ -47,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Comment.cs" />
+    <Compile Include="CustomButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,16 +89,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\like.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\like32.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\like321.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dislike32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\like.png" />
+    <Content Include="Resources\like32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

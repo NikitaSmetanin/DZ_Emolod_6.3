@@ -9,7 +9,6 @@ namespace DZ_Emolod_6._3
     
     internal class Comment
     {
-        Random random = new Random();
         static int autoInc = 0;
         private int id = 0;
         private string text = "";
@@ -21,8 +20,7 @@ namespace DZ_Emolod_6._3
         {
             this.text = text;
             this.user = user;
-            //this.id = ++autoInc;
-            this.id = random.Next(0, 999999);
+            this.id = ++autoInc;
         }
 
         public int getId() { return id; }
