@@ -116,6 +116,16 @@ namespace DZ_Emolod_6._3
             this.Controls.Add(item);
 
             return item;
-        }       
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < comments.Count; i++)
+            {
+                this.Controls.RemoveByKey("itemComment");
+            }
+
+            createItems();
+        }
     }
 }
